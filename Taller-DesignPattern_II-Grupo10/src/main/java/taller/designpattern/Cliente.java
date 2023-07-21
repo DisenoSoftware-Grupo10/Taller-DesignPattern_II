@@ -4,6 +4,9 @@
 
 package taller.designpattern;
 
+import PatronStrategy.ContextoDistribucion;
+import PatronStrategy.TransAutomotrizEstrategia;
+import PatronStrategy.TransCiclistaEstrategia;
 import iterator.BodegaIterator;
 
 /**
@@ -32,5 +35,24 @@ public class Cliente {
         //Recordemos que ya si pide una vez más, no podrá ya que hay solo tres elementos
         //Se podría preguntar al cliente si desea repetir la iteración o pasar a iterar en otra bodega
         iteratorBodega.getNext();
+        
+        
+        //--Aplicando el patrón de diseño Strategy para el segundo parrafo--
+        
+        
+        //Se elije el medio de transporte
+        ContextoDistribucion distribucion = new ContextoDistribucion(new TransCiclistaEstrategia());
+		  
+           //Si se desea 
+		  //se pueden cambiar las vías de transporte al momento de ejecución del programa 
+		  distribucion.setEstrategia(new TransAutomotrizEstrategia());
+		  
+		  distribucion.ejecutarDistribucion();
+		  
+        
+        
+        
+        
+        
     }
 }
