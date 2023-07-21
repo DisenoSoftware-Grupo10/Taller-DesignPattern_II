@@ -23,17 +23,4 @@ public class ContextoDistribucion implements IEstrategiaDistribucion {
 	}
 	
 	
-	  public static void main(String[] args) {
-		  
-		  ContextoDistribucion distribucion = new ContextoDistribucion(new TransCiclistaEstrategia());
-		  
-		  
-		  distribucion.setEstrategia(new TransAutomotrizEstrategia());
-		  
-		  distribucion.ejecutarDistribucion();
-		  
-		  
-	  }
-	
-	
 }
