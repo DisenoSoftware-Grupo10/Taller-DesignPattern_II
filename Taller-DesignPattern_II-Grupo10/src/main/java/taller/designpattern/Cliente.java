@@ -4,6 +4,9 @@
 
 package taller.designpattern;
 
+import PatronStrategy.ContextoDistribucion;
+import PatronStrategy.TransAutomotrizEstrategia;
+import PatronStrategy.TransCiclistaEstrategia;
 import iterator.BodegaIterator;
 import chainOfResponsability.SistemaDevolucion;
 /**
@@ -13,7 +16,7 @@ import chainOfResponsability.SistemaDevolucion;
 public class Cliente {
 
     public static void main(String[] args) {
-        /*
+        System.out.println("DEMO: iterator");
         Bodega bodega = new Bodega("PRODUCTO DISPONIBLES");
         bodega.addProducto(new Producto(1, "laptop", 500));
         bodega.addProducto(new Producto(2, "telefono nokia", 1000000));
@@ -33,7 +36,20 @@ public class Cliente {
         //Recordemos que ya si pide una vez más, no podrá ya que hay solo tres elementos
         //Se podría preguntar al cliente si desea repetir la iteración o pasar a iterar en otra bodega
         iteratorBodega.getNext();
-        /* */
+
+        
+                
+        //--Aplicando el patrón de diseño Strategy para el segundo parrafo--
+        
+        System.out.println("DEMO: Strategy");
+        //Se elije el medio de transporte
+        ContextoDistribucion distribucion = new ContextoDistribucion(new TransCiclistaEstrategia());
+           //Si se desea 
+		  //se pueden cambiar las vías de transporte al momento de ejecución del programa 
+		distribucion.setEstrategia(new TransAutomotrizEstrategia());
+
+		distribucion.ejecutarDistribucion();
+        System.out.println("");
 
 
         System.out.println("DEMO: CHAIN OF RESPONSABILITY");
@@ -62,5 +78,8 @@ public class Cliente {
         System.out.println("");
         SistemaDevolucion s5= new SistemaDevolucion(p5);
         System.out.println("");
+
+
+
     }
 }
