@@ -4,6 +4,7 @@
  */
 package taller.designpattern;
 
+
 /**
  *
  * @author lancervs
@@ -11,13 +12,23 @@ package taller.designpattern;
 public class Producto {
     
     private int ID;
-    private String nombre;
-    private double precio;
+    public String nombre;
+    public double precio;
+    public boolean periodoGarantia;
+    public String fallo;
+    public boolean enBodega;
     
     public Producto(int id, String n, double p){
         this.ID = id;
         this.nombre = n;
         this.precio = p;
+    }
+    public Producto(String name,boolean garantia, String fallo, int precio, boolean bodega){
+        this.nombre= name;
+        this.periodoGarantia= garantia;
+        this.fallo=fallo;
+        this.precio= precio;
+        this.enBodega=bodega;
     }
     
     public int getID() {
@@ -32,5 +43,5 @@ public class Producto {
     public String toString() {
         return "Producto{" + "ID=" + ID + ", nombre=" + nombre + ", precio=" + precio + '}';
     }
-   
+
 }
